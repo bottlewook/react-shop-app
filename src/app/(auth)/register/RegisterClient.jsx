@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter } from "next/navigation";
 import Loader from "@/components/loader/Loader";
 import styles from "@/app/(auth)/login/Auth.module.scss";
