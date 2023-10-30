@@ -1,3 +1,4 @@
+"use client";
 import styles from "./Header.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -6,10 +7,11 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { usePathname } from "next/navigation";
 import { router } from "next/client";
 import { toast } from "react-toastify";
-import {InnerH}
+import InnerHeader from "@/layouts/innerHeader/InnerHeader";
 const Header = () => {
   const pathname = usePathname();
   const [displayName, setDisplayName] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
