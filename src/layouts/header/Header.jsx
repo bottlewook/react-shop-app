@@ -8,10 +8,13 @@ import { usePathname } from "next/navigation";
 import { router } from "next/client";
 import { toast } from "react-toastify";
 import InnerHeader from "@/layouts/innerHeader/InnerHeader";
+import { useDispatch } from "react-redux";
+import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from "@/redux/slice/authSlice";
 const Header = () => {
   const pathname = usePathname();
   const [displayName, setDisplayName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -23,11 +26,19 @@ const Header = () => {
         } else {
           setDisplayName(user.displayName);
         }
+        dispatch(
+          SET_ACTIVE_USER({
+            email: user.email,
+            userName: user.displayName || displayName,
+            userID: user.uid,
+          }),
+        );
       } else {
         setDisplayName("");
+        dispatch(REMOVE_ACTIVE_USER());
       }
     });
-  }, []);
+  }, [dispatch, displayName]);
   const logoutUser = async () => {
     try {
       await signOut(auth);
