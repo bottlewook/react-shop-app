@@ -24,7 +24,7 @@ const RegisterClient = () => {
 
   const registerUser = (e) => {
     e.preventDefault();
-    if (password !== cPassword) {
+    if (password !== cPassword) {ㅔ
       toast.error("비밀번호가 일치하지 않습니다.");
     }
     setIsLoading(true);

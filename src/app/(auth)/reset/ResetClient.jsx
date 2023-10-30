@@ -7,13 +7,24 @@ import Heading from "@/components/heading/Heading";
 import Input from "@/input/Input";
 import Button from "@/components/button/Button";
 import Link from "next/link";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "@/firebase/firebase";
+import { toast } from "react-toastify";
 const ResetClient = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const resetPassword = (e) => {
+  const resetPassword = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    try {
+      setIsLoading(false);
+      await sendPasswordResetEmail(auth, email);
+      toast.success("비밀번호 업데이트를 위해서 이메일을 체크해주세요.");
+    } catch (err) {
+      setIsLoading(false);
+      toast.error(err.message);
+    }
   };
 
   return (
