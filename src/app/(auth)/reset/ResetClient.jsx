@@ -4,7 +4,7 @@ import styles from "./Reset.module.scss";
 import { useState } from "react";
 import Loader from "@/components/loader/Loader";
 import Heading from "@/components/heading/Heading";
-import Input from "@/input/Input";
+import Input from "@/components/input/Input";
 import Button from "@/components/button/Button";
 import Link from "next/link";
 import { sendPasswordResetEmail } from "firebase/auth";

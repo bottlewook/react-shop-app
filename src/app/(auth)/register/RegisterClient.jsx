@@ -5,7 +5,7 @@ import Loader from "@/components/loader/Loader";
 import styles from "@/app/(auth)/login/Auth.module.scss";
 import Image from "next/image";
 import LogoPath from "@/assets/colorful.svg";
-import Input from "@/input/Input";
+import Input from "@/components/input/Input";
 import Button from "@/components/button/Button";
 import Divider from "@/components/divider/Divider";
 import Link from "next/link";
@@ -24,7 +24,8 @@ const RegisterClient = () => {
 
   const registerUser = (e) => {
     e.preventDefault();
-    if (password !== cPassword) {ㅔ
+    if (password !== cPassword) {
+      ㅔ;
       toast.error("비밀번호가 일치하지 않습니다.");
     }
     setIsLoading(true);

@@ -5,7 +5,7 @@ import LogoPath from "@/assets/colorful.svg";
 import { useRouter } from "next/navigation";
 import styles from "./Auth.module.scss";
 import Loader from "@/components/loader/Loader";
-import Input from "@/input/Input";
+import Input from "@/components/input/Input";
 import AutoSignInCheckbox from "@/components/autoSigninCheckbox/AutoSignInCheckbox";
 import Divider from "@/components/divider/Divider";
 import Button from "@/components/button/Button";
