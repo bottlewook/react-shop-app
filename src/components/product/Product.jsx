@@ -10,7 +10,7 @@ import {
 } from "@/redux/slice/productSlice";
 import ProductFilter from "@/components/product/productFilter/ProductFilter";
 import Loader from "@/components/loader/Loader";
-import ProductList from "@/components/product/productList/Produ`ctList";
+import ProductList from "@/components/product/productList/ProductList";
 const Product = () => {
   const { data, isLoading } = useFetchCollection("products");
   const dispatch = useDispatch();
