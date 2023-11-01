@@ -5,11 +5,12 @@ import {
   selectMinPrice,
   selectProducts,
 } from "@/redux/slice/productSlice";
+import { FILTER_BY } from "@/redux/slice/filterSlice";
 
 const ProductFilter = () => {
   const [category, setCategory] = useState("All");
   const [brand, setBrand] = useState("All");
-  const [price, setPrice] = useState("10000");
+  const [price, setPrice] = useState(10000);
 
   const products = useSelector(selectProducts);
   const minPrice = useSelector(selectMinPrice);
@@ -23,7 +24,6 @@ const ProductFilter = () => {
 
   const filterCategories = (category) => {
     setCategory(category);
-    dispatch(FILTER_BY_CATEGORY({ products, category: cat }));
   };
 
   const allBrands = [
@@ -32,12 +32,8 @@ const ProductFilter = () => {
   ];
 
   useEffect(() => {
-    dispatch(FILTER_BY_BRAND({ products, brand }));
-  }, [dispatch, products, brand]);
-
-  useEffect(() => {
-    dispatch(FILTER_BY_PRICE({ products, price }));
-  }, [dispatch, products, price]);
+    dispatch(FILTER_BY({ products, category, brand, price }));
+  }, [dispatch, products, category, brand, price]);
 
   const clearFilters = () => {
     setCategory("All");
