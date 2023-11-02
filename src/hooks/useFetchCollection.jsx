@@ -16,7 +16,7 @@ const useFetchCollection = (collectionName) => {
       onSnapshot(q, (snapshot) => {
         const allData = snapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc,
+          ...doc.data(),
         }));
         setData(allData);
         setIsLoading(false);

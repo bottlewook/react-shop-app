@@ -14,6 +14,7 @@ import ProductList from "@/components/product/productList/ProductList";
 const Product = () => {
   const { data, isLoading } = useFetchCollection("products");
   const dispatch = useDispatch();
+  console.log(data, "data");
 
   useEffect(() => {
     dispatch(STORE_PRODUCTS({ products: data }));

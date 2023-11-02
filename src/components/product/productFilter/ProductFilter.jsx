@@ -19,6 +19,7 @@ const ProductFilter = () => {
   const minPrice = useSelector(selectMinPrice);
   const maxPrice = useSelector(selectMaxPrice);
   const dispatch = useDispatch();
+  console.log(products);
 
   const filterCategories = (category) => {
     setCategory(category);
